@@ -11,7 +11,7 @@ const computerSelection = computerPlay()
 
 let result
 
-function playRound(){
+function playRound(playerSelection,computerSelection){
     if(computerSelection === playerSelection){
         result = "It's a tie!"
     }
@@ -38,4 +38,4 @@ function playRound(){
 
 console.log(computerSelection)
 console.log(playerSelection)
-console.log(playRound())
+console.log(playRound(playerSelection,computerSelection))
