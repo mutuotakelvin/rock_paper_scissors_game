@@ -57,9 +57,8 @@ buttons.forEach(button =>{
     button.addEventListener('click', () =>{
         comp.innerText = "Computer: " + computerSelection
         you.innerHTML = "You: " + button.id
-        console.log("Computer: " + computerSelection)
-        console.log("You: " + button.id)
-        console.log(playRound(button.id,computerSelection))
+        playRound(button.id,computerSelection)
+        
     })
 })
 // console.log(computerSelection)
