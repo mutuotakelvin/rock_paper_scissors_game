@@ -1,5 +1,8 @@
 const choices = ['Rock','Paper','Scissors']
-
+const buttons = document.querySelectorAll('button')
+const results = document.getElementById('results')
+const comp = document.getElementById('computer')
+const you = document.getElementById('you')
 
 
 function computerPlay() {
@@ -15,43 +18,60 @@ let playerScore = 0
 function playRound(playerSelection,computerSelection){
     if(computerSelection === playerSelection){
         result = "It's a tie!"
+        results.innerText = result
     }
     if(computerSelection === "Rock" && playerSelection === "Paper"){
         result = "You win!"
-        playerScore +=1
+        results.innerText = result
+        // playerScore +=1
     }
     if(computerSelection === "Rock" && playerSelection === "Scissors"){
         result = "You lose! Rock beats Scissors"
-        playerScore -=1
+        results.innerText = result
+        // playerScore -=1
     }
     if(computerSelection === "Paper" && playerSelection === "Scissors"){
         result = "You win!"
-        playerScore+=1
+        results.innerText = result
+        // playerScore+=1
     }
     if(computerSelection === "Paper" && playerSelection === "Rock"){
         result = "You lose! Paper beats Rock"
-        playerScore -=1
+        results.innerText = result
+        // playerScore -=1
     }
     if(computerSelection === "Scissors" && playerSelection === "Rock"){
         result = "You win!"
-        playerScore +=1
+        results.innerText = result
+        // playerScore +=1
     }
     if(computerSelection === "Scissors" && playerSelection === "Paper"){
         result = "You lose! Scissors beats Paper"
-        playerScore -=1
+        results.innerText = result
+        // playerScore -=1
     }
-    return "result is " + result + " and playerScore is " + playerScore
+    return result 
 }
-console.log(computerSelection)
-console.log(playerSelection)
 
-function game(){
-    for(let i = 0;i<5;i++){
-        console.log(playRound(playerSelection,computerSelection))
-        // playRound(playerSelection,computerSelection)
-        rounds = i
-    }
-    console.log(rounds)
-}
-game()
+buttons.forEach(button =>{
+    button.addEventListener('click', () =>{
+        comp.innerText = "Computer: " + computerSelection
+        you.innerHTML = "You: " + button.id
+        console.log("Computer: " + computerSelection)
+        console.log("You: " + button.id)
+        console.log(playRound(button.id,computerSelection))
+    })
+})
+// console.log(computerSelection)
+// console.log(playerSelection)
+
+// function game(){
+//     for(let i = 0;i<5;i++){
+//         console.log(playRound(playerSelection,computerSelection))
+//         // playRound(playerSelection,computerSelection)
+//         rounds = i
+//     }
+//     console.log(rounds)
+// }
+// game()
 // console.log(playRound(playerSelection,computerSelection))
